@@ -16,35 +16,33 @@ A privacy-focused, zero-embedding-cost **Multi-Modal Retrieval-Augmented Generat
 *   **Beautiful Dark-Themed Web UI**: A clean, single-page UI allowing users to register, log in, drag-and-drop documents, view their ingested files, and chat with their isolated knowledge base.
 
 ---
-
 ## 📐 Architecture Flow
 
 The following diagram illustrates how raw documents, queries, and user scopes flow between the frontend, backend, and local/external services:
 
 ```mermaid
 graph TD
-    subgraph Frontend (HTML/JS SPA)
-        A[User Interface] -->|Login / Register| B(Auth Forms)
-        A -->|Upload PDF/Image| C(Upload Handler)
-        A -->|Chat Input| D(Query Handler)
+
+    subgraph Frontend["Frontend (HTML/JS SPA)"]
+        A["User Interface"] -->|Login / Register| B["Auth Forms"]
+        A -->|Upload PDF/Image| C["Upload Handler"]
+        A -->|Chat Input| D["Query Handler"]
     end
 
-    subgraph Backend (FastAPI)
-        B -->|Check Credentials| E[auth.py SQLite]
-        C -->|Save File| F[(uploads/user_id/)]
-        C -->|Extract Text| G[ingestion.py PyPDF2 / Tesseract]
-        G -->|Chroma Upsert| H[vector_store.py ChromaDB]
-        D -->|ask| I[agent.py Groq Agent]
+    subgraph Backend["Backend (FastAPI)"]
+        B -->|Check Credentials| E["auth.py / SQLite"]
+        C -->|Save File| F["uploads/user_id/"]
+        C -->|Extract Text| G["ingestion.py / PyPDF2 / Tesseract"]
+        G -->|Chroma Upsert| H["vector_store.py / ChromaDB"]
+        D -->|ask| I["agent.py / Groq Agent"]
     end
 
-    subgraph External & Local Services
-        H -->|Local Embeddings| J[ONNX MiniLM-L6-v2]
+    subgraph Services["External & Local Services"]
+        H -->|Local Embeddings| J["ONNX MiniLM-L6-v2"]
         I -->|Tool Call: search_documents| H
-        I -->|LLM Completion| K[Groq API Llama-3.3]
+        I -->|LLM Completion| K["Groq API / Llama-3.3"]
     end
 ```
-
----
 
 ## 🛠️ Prerequisites & Setup
 
