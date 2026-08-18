@@ -1,0 +1,10 @@
+.env
+chroma_db/
+__pycache__/
+nv (env)
+users.db
+
+uploads
+nv
+=======
+uploads
