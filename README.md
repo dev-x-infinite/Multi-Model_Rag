@@ -72,8 +72,8 @@ graph TD
     ```
 
 3.  **Install Python Dependencies**:
-    ```bash
-    pip install fastapi uvicorn python-multipart pydantic PyPDF2 pytesseract pillow chromadb groq python-dotenv
+    ```
+    pip install -r requirements.txt
     ```
 
 4.  **Configure Environment Variables**:
