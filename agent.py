@@ -17,7 +17,7 @@ from vector_store import VectorStoreManager
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
 store = VectorStoreManager()
 
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "qwen/qwen3.6-27b"
 
 tools = [
     {

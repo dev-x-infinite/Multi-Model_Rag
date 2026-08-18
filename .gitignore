@@ -1,8 +1,8 @@
 .env
 chroma_db/
 __pycache__/
-nv (env)
+env
 users.db
-
+env/
 uploads
-nv
+

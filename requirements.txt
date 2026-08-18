@@ -1,0 +1,9 @@
+PyPDF2
+Pillow
+pytesseract
+chromadb
+fastapi
+uvicorn
+python-multipart
+python-dotenv
+groq
